@@ -8,16 +8,72 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #2B3A67;
             margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            color: #ffffff;
-            overflow-y: auto;
+            background-image: url('../moominhero.jpeg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            color: #2B3A67;
+            position: relative;
         }
-        .container {
+
+        /* Dark overlay */
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark filter */
+            z-index: -1;
+        }
+
+        /* Password Form */
+        #password-form {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #password-form h2 {
+            font-size: 2rem;
+            color: #3D4E89;
+            margin-bottom: 20px;
+        }
+
+        #password-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 10px;
+        }
+
+        #password-submit {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #password-submit:hover {
+            background-color: #66BB6A;
+        }
+
+        /* Main content (hidden initially) */
+        #site-content {
+            display: none;
             width: 100%;
             max-width: 350px;
             background-color: #E0E0E0;
@@ -25,22 +81,30 @@
             text-align: center;
             padding-bottom: 15px;
         }
+
+        .container {
+            width: 100%;
+        }
+
         .image-container img {
             width: 100%;
             height: auto;
             display: block;
         }
+
         .header {
             font-size: 24px;
             color: #2B3A67;
             font-weight: 600;
             margin: 10px 0;
         }
+
         .button-container {
             margin: 0 auto;
             width: calc(100% - 40px);
             padding-top: 0;
         }
+
         .button {
             display: block;
             margin: 10px 0;
@@ -56,10 +120,12 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
             box-sizing: border-box;
         }
+
         .button:hover {
             background-color: #5460A1;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .back-link {
             display: block;
             margin-top: 20px;
@@ -67,32 +133,71 @@
             color: #2B3A67;
             text-decoration: none;
         }
+
         .back-link:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Image Section -->
-        <div class="image-container">
-            <img src="../moominhero.jpeg" alt="Moomin House">
-        </div>
 
-        <!-- Header Section -->
-        <div class="header">For Housemates</div>
+    <!-- Overlay -->
+    <div id="overlay"></div>
 
-        <!-- Buttons Section -->
-        <div class="button-container">
-            <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagTYGlGZwlKGtbRA/form" class="button">Add Sublet Dates</a>
-            <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagTT3JupH6agXMlU/form" class="button">Mark Sublet As Claimed</a>
-            <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/tblQpRLMkZAQydLqt/viwnsO3Pypm0Smtn7?blocks=hide" class="button">Current/Upcoming Sublettors</a>
-            <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/shrDX8W5Dn2bLZC85" class="button">View Rooms</a>
-            <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagDHDQiVKVcPsgc6/form" class="button">Add A Room</a>
-        </div>
-
-        <!-- Back Home Link -->
-        <a href="../" class="back-link">Back Home</a>
+    <!-- Password form -->
+    <div id="password-form">
+        <h2>For Housemates</h2>
+        <input type="password" id="password-input" placeholder="Enter Password">
+        <button id="password-submit">Submit</button>
     </div>
+
+    <!-- Main Content (Hidden Initially) -->
+    <div id="site-content">
+        <div class="container">
+            <!-- Image Section -->
+            <div class="image-container">
+                <img src="../moominhero.jpeg" alt="Moomin House">
+            </div>
+
+            <!-- Header Section -->
+            <div class="header">For Housemates</div>
+
+            <!-- Buttons Section -->
+            <div class="button-container">
+                <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagTYGlGZwlKGtbRA/form" target="_blank" rel="noopener noreferrer" class="button">Add Sublet Dates</a>
+                <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagTT3JupH6agXMlU/form" target="_blank" rel="noopener noreferrer" class="button">Mark Sublet As Claimed</a>
+                <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/tblQpRLMkZAQydLqt/viwnsO3Pypm0Smtn7?blocks=hide" target="_blank" rel="noopener noreferrer" class="button">Current/Upcoming Sublettors</a>
+                <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/shrDX8W5Dn2bLZC85" target="_blank" rel="noopener noreferrer" class="button">View Rooms</a>
+                <a href="https://airtable.com/app2Y5Z0NxG5ESCxo/pagDHDQiVKVcPsgc6/form" target="_blank" rel="noopener noreferrer" class="button">Add A Room</a>
+            </div>
+
+            <!-- Back Home Link -->
+            <a href="../" target="_blank" rel="noopener noreferrer" class="back-link">Back Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Password protection script
+        document.getElementById('password-submit').addEventListener('click', function () {
+            var password = document.getElementById('password-input').value;
+
+            if (password === "moominsecrets") {
+                document.getElementById('password-form').style.display = 'none';
+                document.getElementById('site-content').style.display = 'block';
+
+                // Remove the overlay and reset background color
+                document.body.style.backgroundImage = "none";
+                document.body.style.backgroundColor = "#2B3A67";
+
+                var overlay = document.getElementById('overlay');
+                if (overlay) {
+                    overlay.parentNode.removeChild(overlay);
+                }
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+    </script>
+
 </body>
 </html>
